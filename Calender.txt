@@ -1,0 +1,22 @@
+Calender = 
+VAR _startDate = EDate(Today(),-48)
+
+VAR _endDate = EDate(Today(),48)
+Return
+	ADDCOLUMNS(
+	Calender(_startDate,_endDate),
+	"Year",YEAR([Date]),
+	"Year Month",YEAR([Date]) & " " & FORMAT([Date],"mmm"),
+	"Quarter", "Q" & Quarter([Date]),
+	"Month Number",Month([Date]),
+	"Month",FORMAT(Date],"mmm"),
+	"Week",WeekNum([Date],1),
+	"Day",DAY([Date]),
+	"Date Slicer",
+		IF([Date] = Today(),"Today",
+			IF([Date] = Today()-1,"Yesterday",
+			FORMAT([Date], "dd mmm yyyy) & "")
+		
+		
+		)
+	)
